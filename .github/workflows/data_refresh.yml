@@ -9,6 +9,8 @@ on:
 jobs:
   ingest-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Essential for pushing updated index back to repo
 
     steps:
       - name: Checkout Repository
@@ -26,6 +28,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Phase 1 Ingestion Pipeline
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }} # Optional but recommended for Hub access
         run: |
           python run_phase1.py
 
