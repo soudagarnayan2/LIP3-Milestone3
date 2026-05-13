@@ -1,0 +1,84 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
+class GrowwScraper:
+    """Mock scraper for offline development."""
+    
+    def __init__(self):
+        self.mock_data = {
+            "https://groww.in/mutual-funds/sbi-gold-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-gold-fund-direct-growth",
+                "fund_name": "SBI Gold Fund",
+                "nav": "20.45",
+                "objective": "To provide returns that closely correspond to the returns provided by SBI Gold Exchange Traded Scheme.",
+                "risk": "High"
+            },
+            "https://groww.in/mutual-funds/sbi-psu-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-psu-fund-direct-growth",
+                "fund_name": "SBI PSU Fund",
+                "nav": "31.12",
+                "objective": "To provide investors with opportunities for long-term growth in capital along with the liquidity of an open-ended scheme through an active management of investments in a diversified basket of equity stocks of Public Sector Undertakings.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-contra-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-contra-fund-direct-growth",
+                "fund_name": "SBI Contra Fund",
+                "nav": "350.20",
+                "objective": "To provide the investor with the opportunity of long-term capital appreciation by investing in a diversified portfolio of equity and equity related securities following a contrarian investment strategy.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-small-midcap-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-small-midcap-fund-direct-growth",
+                "fund_name": "SBI Small Cap Fund",
+                "nav": "190.62",
+                "objective": "To provide investors with opportunities for long-term capital growth through an active management of investments in a diversified basket of equity stocks of small-cap companies.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-magnum-multiplier-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-magnum-multiplier-fund-direct-growth",
+                "fund_name": "SBI Magnum Multiplier Fund",
+                "nav": "279.47",
+                "objective": "To provide the investor with the opportunity of long-term capital appreciation by investing in a diversified portfolio of equity and equity related securities.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-nifty-next-50-index-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-nifty-next-50-index-fund-direct-growth",
+                "fund_name": "SBI Nifty Next 50 Index Fund",
+                "nav": "19.79",
+                "objective": "To provide returns that closely correspond to the returns of the Nifty Next 50 Index, subject to tracking error.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-large-cap-direct-plan-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-large-cap-direct-plan-growth",
+                "fund_name": "SBI Large Cap Fund",
+                "nav": "99.77",
+                "objective": "To provide the investor with the opportunity of long-term capital appreciation by investing in a diversified portfolio of equity and equity related securities of large-cap companies.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-pharma-fund-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-pharma-fund-direct-growth",
+                "fund_name": "SBI Healthcare Opportunities Fund",
+                "nav": "525.96",
+                "objective": "To provide the investor with the opportunity of long-term capital appreciation by investing in equity and equity related securities of companies engaged in the healthcare and pharmaceutical sectors.",
+                "risk": "Very High"
+            },
+            "https://groww.in/mutual-funds/sbi-silver-etf-fof-direct-growth": {
+                "url": "https://groww.in/mutual-funds/sbi-silver-etf-fof-direct-growth",
+                "fund_name": "SBI Silver ETF Fund of Fund",
+                "nav": "12.45",
+                "objective": "To provide returns that closely correspond to the returns provided by SBI Silver ETF.",
+                "risk": "High"
+            }
+        }
+
+    def scrape_fund(self, url: str):
+        logger.info(f"Mocking fetch for: {url}")
+        # Return specific data if available, otherwise generic
+        return self.mock_data.get(url, {
+            "url": url,
+            "fund_name": "SBI Sample Fund",
+            "nav": "100.00",
+            "objective": "Generic investment objective for SBI Mutual Fund products.",
+            "risk": "Moderate"
+        })

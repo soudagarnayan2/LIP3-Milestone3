@@ -1,0 +1,83 @@
+[
+    {
+        "url": "https://groww.in/mutual-funds/sbi-gold-fund-direct-growth",
+        "fund_name": "SBI Gold Fund",
+        "nav": "20.45",
+        "objective": "To provide returns that closely correspond to the returns provided by SBI Gold Exchange Traded Scheme.",
+        "risk": "High",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-psu-fund-direct-growth",
+        "fund_name": "SBI PSU Fund",
+        "nav": "31.12",
+        "objective": "To provide investors with opportunities for long-term growth in capital along with the liquidity of an open-ended scheme through an active management of investments in a diversified basket of equity stocks of Public Sector Undertakings.",
+        "risk": "Very High",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-contra-fund-direct-growth",
+        "fund_name": "SBI Contra Fund",
+        "nav": "350.20",
+        "objective": "To provide the investor with the opportunity of long-term capital appreciation by investing in a diversified portfolio of equity and equity related securities following a contrarian investment strategy.",
+        "risk": "Very High",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-small-midcap-fund-direct-growth",
+        "fund_name": "SBI Sample Fund",
+        "nav": "100.00",
+        "objective": "Generic investment objective for SBI Mutual Fund products.",
+        "risk": "Moderate",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-magnum-multiplier-fund-direct-growth",
+        "fund_name": "SBI Sample Fund",
+        "nav": "100.00",
+        "objective": "Generic investment objective for SBI Mutual Fund products.",
+        "risk": "Moderate",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-nifty-next-50-index-fund-direct-growth",
+        "fund_name": "SBI Sample Fund",
+        "nav": "100.00",
+        "objective": "Generic investment objective for SBI Mutual Fund products.",
+        "risk": "Moderate",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-large-cap-direct-plan-growth",
+        "fund_name": "SBI Sample Fund",
+        "nav": "100.00",
+        "objective": "Generic investment objective for SBI Mutual Fund products.",
+        "risk": "Moderate",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-pharma-fund-direct-growth",
+        "fund_name": "SBI Sample Fund",
+        "nav": "100.00",
+        "objective": "Generic investment objective for SBI Mutual Fund products.",
+        "risk": "Moderate",
+        "status": "cleaned",
+        "version": "1.1"
+    },
+    {
+        "url": "https://groww.in/mutual-funds/sbi-silver-etf-fof-direct-growth",
+        "fund_name": "SBI Sample Fund",
+        "nav": "100.00",
+        "objective": "Generic investment objective for SBI Mutual Fund products.",
+        "risk": "Moderate",
+        "status": "cleaned",
+        "version": "1.1"
+    }
+]
