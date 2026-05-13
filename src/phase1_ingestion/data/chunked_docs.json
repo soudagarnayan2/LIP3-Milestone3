@@ -27,56 +27,56 @@
         }
     },
     {
-        "page_content": "Fund Name: SBI Sample Fund\nNAV: 100.00\nInvestment Objective: Generic investment objective for SBI Mutual Fund products.",
+        "page_content": "Fund Name: SBI Small Cap Fund\nNAV: 190.62\nInvestment Objective: To provide investors with opportunities for long-term capital growth through an active management of investments in a diversified basket of equity stocks of small-cap companies.",
         "metadata": {
             "source": "https://groww.in/mutual-funds/sbi-small-midcap-fund-direct-growth",
-            "fund_name": "SBI Sample Fund",
-            "risk": "Moderate",
+            "fund_name": "SBI Small Cap Fund",
+            "risk": "Very High",
             "version": "1.1"
         }
     },
     {
-        "page_content": "Fund Name: SBI Sample Fund\nNAV: 100.00\nInvestment Objective: Generic investment objective for SBI Mutual Fund products.",
+        "page_content": "Fund Name: SBI Magnum Multiplier Fund\nNAV: 279.47\nInvestment Objective: To provide the investor with the opportunity of long-term capital appreciation by investing in a diversified portfolio of equity and equity related securities.",
         "metadata": {
             "source": "https://groww.in/mutual-funds/sbi-magnum-multiplier-fund-direct-growth",
-            "fund_name": "SBI Sample Fund",
-            "risk": "Moderate",
+            "fund_name": "SBI Magnum Multiplier Fund",
+            "risk": "Very High",
             "version": "1.1"
         }
     },
     {
-        "page_content": "Fund Name: SBI Sample Fund\nNAV: 100.00\nInvestment Objective: Generic investment objective for SBI Mutual Fund products.",
+        "page_content": "Fund Name: SBI Nifty Next 50 Index Fund\nNAV: 19.79\nInvestment Objective: To provide returns that closely correspond to the returns of the Nifty Next 50 Index, subject to tracking error.",
         "metadata": {
             "source": "https://groww.in/mutual-funds/sbi-nifty-next-50-index-fund-direct-growth",
-            "fund_name": "SBI Sample Fund",
-            "risk": "Moderate",
+            "fund_name": "SBI Nifty Next 50 Index Fund",
+            "risk": "Very High",
             "version": "1.1"
         }
     },
     {
-        "page_content": "Fund Name: SBI Sample Fund\nNAV: 100.00\nInvestment Objective: Generic investment objective for SBI Mutual Fund products.",
+        "page_content": "Fund Name: SBI Large Cap Fund\nNAV: 99.77\nInvestment Objective: To provide the investor with the opportunity of long-term capital appreciation by investing in a diversified portfolio of equity and equity related securities of large-cap companies.",
         "metadata": {
             "source": "https://groww.in/mutual-funds/sbi-large-cap-direct-plan-growth",
-            "fund_name": "SBI Sample Fund",
-            "risk": "Moderate",
+            "fund_name": "SBI Large Cap Fund",
+            "risk": "Very High",
             "version": "1.1"
         }
     },
     {
-        "page_content": "Fund Name: SBI Sample Fund\nNAV: 100.00\nInvestment Objective: Generic investment objective for SBI Mutual Fund products.",
+        "page_content": "Fund Name: SBI Healthcare Opportunities Fund\nNAV: 525.96\nInvestment Objective: To provide the investor with the opportunity of long-term capital appreciation by investing in equity and equity related securities of companies engaged in the healthcare and pharmaceutical sectors.",
         "metadata": {
             "source": "https://groww.in/mutual-funds/sbi-pharma-fund-direct-growth",
-            "fund_name": "SBI Sample Fund",
-            "risk": "Moderate",
+            "fund_name": "SBI Healthcare Opportunities Fund",
+            "risk": "Very High",
             "version": "1.1"
         }
     },
     {
-        "page_content": "Fund Name: SBI Sample Fund\nNAV: 100.00\nInvestment Objective: Generic investment objective for SBI Mutual Fund products.",
+        "page_content": "Fund Name: SBI Silver ETF Fund of Fund\nNAV: 12.45\nInvestment Objective: To provide returns that closely correspond to the returns provided by SBI Silver ETF.",
         "metadata": {
             "source": "https://groww.in/mutual-funds/sbi-silver-etf-fof-direct-growth",
-            "fund_name": "SBI Sample Fund",
-            "risk": "Moderate",
+            "fund_name": "SBI Silver ETF Fund of Fund",
+            "risk": "High",
             "version": "1.1"
         }
     }
