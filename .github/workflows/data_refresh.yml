@@ -2,8 +2,8 @@ name: Daily Knowledge Base Refresh
 
 on:
   schedule:
-    # Runs at 00:00 UTC every day
-    - cron: '0 0 * * *'
+    # Runs at 10:00 AM IST (04:30 AM UTC) every day
+    - cron: '30 4 * * *'
   workflow_dispatch: # Allows manual trigger from the GitHub UI
 
 jobs:
