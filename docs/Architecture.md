@@ -153,7 +153,7 @@ graph TD
 **Focus**: Staging and production-grade hosting with continuous delivery.
 
 - **Backend API Deployment (Railway)**:
-  - Deployed as a service on **Railway** using the root-level `main.py` entrypoint configured via `railway.json`.
+  - Deployed as a service on **Railway** using the root-level `Dockerfile` and `main.py` entrypoint.
   - Configure environment variables on Railway: `GROQ_API_KEY`, `HF_TOKEN` (for low-memory embeddings API), and `ALLOWED_ORIGINS` (pointing to the Vercel app domain).
   - Auto-deploys on every push to the `main` branch of the GitHub repository.
 - **Frontend App Deployment (Vercel)**:
@@ -163,4 +163,4 @@ graph TD
 
 ---
 
-*Document Version: 1.3 | Created for SBI Mutual Fund LIP3 Project*
+*Document Version: 1.4 | Created for SBI Mutual Fund LIP3 Project*
