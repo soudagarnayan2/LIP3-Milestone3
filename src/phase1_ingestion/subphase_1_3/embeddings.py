@@ -65,6 +65,9 @@ class HFInferenceEmbeddings:
     def embed_query(self, text: str) -> List[float]:
         return self._embed([text])[0]
 
+    def __call__(self, text: str) -> List[float]:
+        return self.embed_query(text)
+
 class EmbeddingGenerator:
     """
     Handles Phase 1.3: Vector Embedding Generation using BAAI/bge-small-en-v1.5.
