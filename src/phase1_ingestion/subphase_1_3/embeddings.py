@@ -18,6 +18,53 @@ class MockEmbeddings:
         # Return random vectors of dimension 1536 (standard for text-embedding-3-small)
         return [np.random.rand(1536).tolist() for _ in texts]
 
+class HFInferenceEmbeddings:
+    """
+    API-based Hugging Face Embeddings to bypass loading PyTorch/SentenceTransformers locally.
+    Uses HF Serverless Inference API. Reduces memory footprint from 550MB to <100MB.
+    """
+    def __init__(self, model_name: str, hf_token: str):
+        self.model_name = model_name
+        self.hf_token = hf_token
+        self.api_url = f"https://router.huggingface.co/hf-inference/models/{model_name}"
+        
+    def _embed(self, texts: List[str]) -> List[List[float]]:
+        import requests
+        headers = {"Authorization": f"Bearer {self.hf_token}"}
+        response = requests.post(
+            self.api_url,
+            headers=headers,
+            json={"inputs": texts, "options": {"wait_for_model": True}}
+        )
+        if response.status_code != 200:
+            raise Exception(f"Hugging Face Inference API returned error {response.status_code}: {response.text}")
+        
+        result = response.json()
+        if not isinstance(result, list):
+            raise ValueError(f"Unexpected response format from HF: {result}")
+            
+        # Check if the result is 3D (batch, seq, dim)
+        if len(result) > 0 and isinstance(result[0], list) and len(result[0]) > 0 and isinstance(result[0][0], list):
+            pooled_result = []
+            for doc_tensor in result:
+                seq_len = len(doc_tensor)
+                dim = len(doc_tensor[0])
+                mean_vector = [0.0] * dim
+                for token_vector in doc_tensor:
+                    for d in range(dim):
+                        mean_vector[d] += token_vector[d]
+                mean_vector = [val / seq_len for val in mean_vector]
+                pooled_result.append(mean_vector)
+            return pooled_result
+            
+        return result
+        
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return self._embed(texts)
+        
+    def embed_query(self, text: str) -> List[float]:
+        return self._embed([text])[0]
+
 class EmbeddingGenerator:
     """
     Handles Phase 1.3: Vector Embedding Generation using BAAI/bge-small-en-v1.5.
@@ -27,8 +74,17 @@ class EmbeddingGenerator:
         if use_mock:
             self.embeddings_model = MockEmbeddings()
         else:
-            from langchain_huggingface import HuggingFaceEmbeddings
-            self.embeddings_model = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+            hf_token = os.getenv("HF_TOKEN")
+            if hf_token:
+                logger.info("Using Hugging Face Inference API for embeddings (low memory mode).")
+                self.embeddings_model = HFInferenceEmbeddings(
+                    model_name="BAAI/bge-small-en-v1.5", 
+                    hf_token=hf_token
+                )
+            else:
+                logger.info("HF_TOKEN not found. Falling back to local HuggingFaceEmbeddings (high memory mode).")
+                from langchain_huggingface import HuggingFaceEmbeddings
+                self.embeddings_model = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 
     def generate(self, input_path: str, output_dir: str = "src/phase1_ingestion/data"):
         """Reads chunks and generates embeddings."""
