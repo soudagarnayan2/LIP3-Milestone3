@@ -46,7 +46,7 @@ graph TD
 
     subgraph "Production Cloud Deployment (Phase 7)"
         O --> |Hosted on| V[Vercel Web Platform]
-        L --> |Hosted on| RE[Render Web Service]
+        L --> |Hosted on| RY[Railway Cloud Platform]
     end
 ```
 
@@ -149,18 +149,18 @@ graph TD
 
 ---
 
-## Phase 7: Production Cloud Deployment (Render & Vercel)
+## Phase 7: Production Cloud Deployment (Railway & Vercel)
 **Focus**: Staging and production-grade hosting with continuous delivery.
 
-- **Backend API Deployment (Render)**:
-  - Deployed as a web service on **Render** using the root-level `main.py` entrypoint.
-  - Configure environment variables on Render: `GROQ_API_KEY`, `ALLOWED_ORIGINS` (pointing to the Vercel app domain), and other standard configurations.
+- **Backend API Deployment (Railway)**:
+  - Deployed as a service on **Railway** using the root-level `main.py` entrypoint configured via `railway.json`.
+  - Configure environment variables on Railway: `GROQ_API_KEY`, `HF_TOKEN` (for low-memory embeddings API), and `ALLOWED_ORIGINS` (pointing to the Vercel app domain).
   - Auto-deploys on every push to the `main` branch of the GitHub repository.
 - **Frontend App Deployment (Vercel)**:
   - Hosted on **Vercel** with full Next.js native optimization.
-  - Configure environment variables on Vercel: `NEXT_PUBLIC_API_URL` (pointing to the Render backend service URL).
+  - Configure environment variables on Vercel: `NEXT_PUBLIC_API_URL` (pointing to the Railway backend service URL).
   - Auto-deploys via Vercel-GitHub integration on push, providing instant preview URLs and production-grade stability.
 
 ---
 
-*Document Version: 1.2 | Created for SBI Mutual Fund LIP3 Project*
+*Document Version: 1.3 | Created for SBI Mutual Fund LIP3 Project*
