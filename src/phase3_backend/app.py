@@ -1,3 +1,4 @@
+import os
 import re
 import logging
 from fastapi import FastAPI, HTTPException
@@ -25,9 +26,15 @@ from src.phase3_backend.admin import router as admin_router
 app = FastAPI(title="SBI Mutual Fund FAQ API", version="1.0")
 app.include_router(admin_router)
 
+# Configure allowed origins for CORS (allowing Vercel frontend origin)
+allowed_origins = ["http://localhost:3000", "http://localhost:3001"]
+env_origins = os.getenv("ALLOWED_ORIGINS")
+if env_origins:
+    allowed_origins.extend([o.strip() for o in env_origins.split(",")])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

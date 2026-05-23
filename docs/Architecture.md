@@ -44,8 +44,9 @@ graph TD
         R[Docker / CI/CD] --> L
     end
 
-    subgraph "Interactive Deployment (Phase 7)"
-        S1[Streamlit Web App] --> L
+    subgraph "Production Cloud Deployment (Phase 7)"
+        O --> |Hosted on| V[Vercel Web Platform]
+        L --> |Hosted on| RE[Render Web Service]
     end
 ```
 
@@ -148,15 +149,18 @@ graph TD
 
 ---
 
-## Phase 7: Streamlit Deployment & Interactive Playground
-**Focus**: Rapid prototyping and user-friendly testing via Streamlit.
+## Phase 7: Production Cloud Deployment (Render & Vercel)
+**Focus**: Staging and production-grade hosting with continuous delivery.
 
-- **Streamlit Playground**: Develop a lightweight, fully functional frontend in Streamlit to serve as a fast testing sandbox. It offers:
-  - Chat interface connected to the FastAPI backend or directly calling the Phase 2/3 RAG engine.
-  - Interactive parameter controls (e.g., Temperature, Top-K, Retrieval strategy switches) to tweak LLM output in real-time.
-  - Context visualization showing the exact retrieved chunks, metadata filters, and similarity scores.
-- **Easy Sharing & Deployment**: Host the Streamlit application on **Streamlit Community Cloud** or containerize it for local and cloud deployment, providing stakeholders with an immediate, interactive way to test the RAG engine's performance.
+- **Backend API Deployment (Render)**:
+  - Deployed as a web service on **Render** using the root-level `main.py` entrypoint.
+  - Configure environment variables on Render: `GROQ_API_KEY`, `ALLOWED_ORIGINS` (pointing to the Vercel app domain), and other standard configurations.
+  - Auto-deploys on every push to the `main` branch of the GitHub repository.
+- **Frontend App Deployment (Vercel)**:
+  - Hosted on **Vercel** with full Next.js native optimization.
+  - Configure environment variables on Vercel: `NEXT_PUBLIC_API_URL` (pointing to the Render backend service URL).
+  - Auto-deploys via Vercel-GitHub integration on push, providing instant preview URLs and production-grade stability.
 
 ---
 
-*Document Version: 1.1 | Created for SBI Mutual Fund LIP3 Project*
+*Document Version: 1.2 | Created for SBI Mutual Fund LIP3 Project*
