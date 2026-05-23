@@ -10,6 +10,5 @@ services:
         sync: false
         placeholder: "Get your key from https://console.groq.com/keys"
       - key: ALLOWED_ORIGINS
-        sync: false
         value: "http://localhost:3000"
         placeholder: "Comma-separated list of your Vercel frontend URL(s)"
