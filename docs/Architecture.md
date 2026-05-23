@@ -43,6 +43,10 @@ graph TD
         L --> Q[Monitoring: LangSmith/Langfuse]
         R[Docker / CI/CD] --> L
     end
+
+    subgraph "Interactive Deployment (Phase 7)"
+        S1[Streamlit Web App] --> L
+    end
 ```
 
 ---
@@ -144,4 +148,15 @@ graph TD
 
 ---
 
-*Document Version: 1.0 | Created for SBI Mutual Fund LIP3 Project*
+## Phase 7: Streamlit Deployment & Interactive Playground
+**Focus**: Rapid prototyping and user-friendly testing via Streamlit.
+
+- **Streamlit Playground**: Develop a lightweight, fully functional frontend in Streamlit to serve as a fast testing sandbox. It offers:
+  - Chat interface connected to the FastAPI backend or directly calling the Phase 2/3 RAG engine.
+  - Interactive parameter controls (e.g., Temperature, Top-K, Retrieval strategy switches) to tweak LLM output in real-time.
+  - Context visualization showing the exact retrieved chunks, metadata filters, and similarity scores.
+- **Easy Sharing & Deployment**: Host the Streamlit application on **Streamlit Community Cloud** or containerize it for local and cloud deployment, providing stakeholders with an immediate, interactive way to test the RAG engine's performance.
+
+---
+
+*Document Version: 1.1 | Created for SBI Mutual Fund LIP3 Project*
