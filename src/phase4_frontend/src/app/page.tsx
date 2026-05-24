@@ -17,6 +17,50 @@ const RECENT_FUNDS = [
   { name: "Axis Bluechip Fund", change: "-0.2%", negative: true, points: "50,45,55,40,35,30" },
 ];
 
+function renderContentWithLinks(text: string) {
+  if (!text) return null;
+
+  // Split by markdown links [text](url) and raw URLs
+  const urlRegex = /(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|https?:\/\/[^\s)]+)/g;
+  const parts = text.split(urlRegex);
+
+  return parts.map((part, index) => {
+    const markdownMatch = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
+    if (markdownMatch) {
+      const [_, linkText, url] = markdownMatch;
+      return (
+        <a
+          key={index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00d09c] hover:underline font-medium break-all"
+        >
+          {linkText}
+        </a>
+      );
+    }
+
+    const rawUrlMatch = part.match(/^(https?:\/\/[^\s)]+)$/);
+    if (rawUrlMatch) {
+      const url = rawUrlMatch[1];
+      return (
+        <a
+          key={index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00d09c] hover:underline font-medium break-all"
+        >
+          {url}
+        </a>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
+
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -202,10 +246,10 @@ export default function Home() {
               
               <div className={`max-w-[70%] ${msg.role === "user" ? "bg-[#1e1e1e] px-5 py-3 rounded-[20px] rounded-tr-none" : "flex flex-col gap-4"}`}>
                 {msg.role === "user" ? (
-                  <p className="text-sm leading-relaxed">{msg.content}</p>
+                  <p className="text-sm leading-relaxed">{renderContentWithLinks(msg.content)}</p>
                 ) : (
                   <div className="message-bot-card">
-                    <p className="text-sm leading-relaxed mb-6 text-[#e0e0e0]">{msg.content}</p>
+                    <p className="text-sm leading-relaxed mb-6 text-[#e0e0e0]">{renderContentWithLinks(msg.content)}</p>
                     
                     {msg.suggestions && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
