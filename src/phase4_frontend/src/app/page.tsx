@@ -229,7 +229,27 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">How can I help you today?</h3>
-                <p className="text-sm text-[#9ba3af]">Ask about fund NAVs, risks, or portfolio suggestions.</p>
+                <p className="text-sm text-[#9ba3af] mb-6">Ask about fund NAVs, risks, or portfolio suggestions.</p>
+                <div className="flex flex-col gap-2.5 max-w-md mx-auto">
+                  <button 
+                    onClick={() => sendMessage("What is the NAV of SBI Gold Fund?")}
+                    className="w-full px-4.5 py-3 bg-[#121212] border border-[#1e1e1e] hover:border-[#00d09c]/40 hover:bg-[#00d09c]/5 rounded-xl text-xs text-[#9ba3af] hover:text-white transition-all duration-200 text-left flex items-center gap-2"
+                  >
+                    <span className="text-[#00d09c] font-bold">➔</span> What is the NAV of SBI Gold Fund?
+                  </button>
+                  <button 
+                    onClick={() => sendMessage("Is the SBI Contra Fund high risk?")}
+                    className="w-full px-4.5 py-3 bg-[#121212] border border-[#1e1e1e] hover:border-[#00d09c]/40 hover:bg-[#00d09c]/5 rounded-xl text-xs text-[#9ba3af] hover:text-white transition-all duration-200 text-left flex items-center gap-2"
+                  >
+                    <span className="text-[#00d09c] font-bold">➔</span> Is the SBI Contra Fund high risk?
+                  </button>
+                  <button 
+                    onClick={() => sendMessage("What is the NAV of the SBI PSU Fund?")}
+                    className="w-full px-4.5 py-3 bg-[#121212] border border-[#1e1e1e] hover:border-[#00d09c]/40 hover:bg-[#00d09c]/5 rounded-xl text-xs text-[#9ba3af] hover:text-white transition-all duration-200 text-left flex items-center gap-2"
+                  >
+                    <span className="text-[#00d09c] font-bold">➔</span> What is the NAV of the SBI PSU Fund?
+                  </button>
+                </div>
               </div>
             </div>
           )}
